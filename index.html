@@ -151,9 +151,15 @@
         }
         
         .skill-item {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            line-height: 1.5;
+            text-align: left;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: normal;
+            hyphens: auto;
         }
         
         .skill-item:before {
@@ -161,6 +167,9 @@
             color: var(--accent);
             font-weight: bold;
             margin-right: 10px;
+            flex-shrink: 0;
+            line-height: 1.5;
+            padding-top: 1px;
         }
         
         .contact-info {
@@ -457,6 +466,16 @@
                 color-adjust: exact !important;
             }
             
+            /* 리스트 항목 인쇄 최적화 */
+            .skill-item {
+                margin-bottom: 10px;
+                white-space: normal;
+                word-wrap: break-word;
+                hyphens: none;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
             body {
                 background-color: white !important;
                 width: 100%;
@@ -531,6 +550,17 @@
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
+            }
+            
+            /* 특정 문단이나 리스트의 줄바꿈 최적화 */
+            .experience-content ul, .project-details {
+                width: 100%;
+            }
+            
+            .experience-content .skill-item strong,
+            .project-details .skill-item strong {
+                white-space: normal;
+                word-break: keep-all;
             }
             
             .tech-icon {
@@ -663,9 +693,9 @@
                     <div style="margin-bottom: 25px;">
                         <h4 style="color: var(--primary); margin-bottom: 15px;">프롬프트 엔지니어링 및 최적화</h4>
                         <ul style="list-style-type: none; margin-left: 20px;">
-                            <li class="skill-item">LLM의 응답 정확도를 극대화하기 위해 <strong>Chain of Thought(CoT), Few-shot Learning, Adaptive Prompting</strong> 기술 적용</li>
+                            <li class="skill-item">LLM의 응답 정확도를 극대화하기 위해 <strong>Chain of Thought(CoT)</strong>, <strong>Few-shot Learning</strong>, <strong>Adaptive Prompting</strong> 기술 적용</li>
                             <li class="skill-item">사용자 피드백을 기반으로 프롬프트를 동적으로 조정하는 <strong>LLM Feedback Loop</strong> 설계</li>
-                            <li class="skill-item"><strong>AI 기반 영문 에세이 첨삭 서비스 개발</strong> → 문법 오류 탐지 및 자연스러운 문장 추천을 위한 프롬프트 최적화</li>
+                            <li class="skill-item"><strong>AI 기반 영문 에세이 첨삭 서비스 개발</strong>: 문법 오류 탐지 및 자연스러운 문장 추천을 위한 프롬프트 최적화</li>
                         </ul>
                     </div>
                     
@@ -673,8 +703,8 @@
                         <h4 style="color: var(--primary); margin-bottom: 15px;">LLM API 및 AI 서비스 운영</h4>
                         <ul style="list-style-type: none; margin-left: 20px;">
                             <li class="skill-item">OpenAI API, Claude, LLama 등 다양한 <strong>LLM API를 연동하고 최적화</strong>하여 서비스 품질 개선</li>
-                            <li class="skill-item"><strong>RAG(Retrieval Augmented Generation) 기술 적용</strong> → 사전 학습된 지식을 보완하여 최신 데이터를 반영하는 검색 강화 시스템 구축</li>
-                            <li class="skill-item"><strong>프롬프트 자동화 파이프라인 구축</strong> → 특정 입력 패턴을 인식하고 맞춤형 프롬프트를 자동 생성하여 응답 품질 개선</li>
+                            <li class="skill-item"><strong>RAG(Retrieval Augmented Generation) 기술 적용</strong>: 사전 학습된 지식을 보완하여 최신 데이터를 반영하는 검색 강화 시스템 구축</li>
+                            <li class="skill-item"><strong>프롬프트 자동화 파이프라인 구축</strong>: 특정 입력 패턴을 인식하고 맞춤형 프롬프트를 자동 생성하여 응답 품질 개선</li>
                         </ul>
                     </div>
                     
@@ -720,15 +750,15 @@
                         <ul style="list-style-type: none; margin-left: 20px;">
                             <li class="skill-item">XPLA 블록체인 네트워크와 모바일 게임 <em>Dear, Ella</em> 간의 <strong>온체인-오프체인 데이터 동기화 서버</strong> 구축</li>
                             <li class="skill-item">게임 내 NFT 아이템의 안전한 전송 및 조회 기능 개발</li>
-                            <li class="skill-item"><strong>E2EE(종단 간 암호화) 적용</strong> → 사용자 개인 키 보호 및 보안성 강화</li>
+                            <li class="skill-item"><strong>E2EE(종단 간 암호화) 적용</strong>: 사용자 개인 키 보호 및 보안성 강화</li>
                         </ul>
                     </div>
                     
                     <div style="margin-bottom: 25px;">
                         <h4 style="color: var(--secondary); margin-bottom: 15px;">블록체인 R&D 및 Web3 지갑 개발</h4>
                         <ul style="list-style-type: none; margin-left: 20px;">
-                            <li class="skill-item"><strong>Web3 게임 지갑 개발 프로젝트 주도</strong> → 사용자가 게임 내에서 직접 암호화폐 및 NFT를 거래할 수 있도록 설계</li>
-                            <li class="skill-item"><strong>지갑 API 설계 및 UX 최적화</strong> → 비개발자도 쉽게 사용할 수 있는 Wallet SDK 개발</li>
+                            <li class="skill-item"><strong>Web3 게임 지갑 개발 프로젝트 주도</strong>: 사용자가 게임 내에서 직접 암호화폐 및 NFT를 거래할 수 있도록 설계</li>
+                            <li class="skill-item"><strong>지갑 API 설계 및 UX 최적화</strong>: 비개발자도 쉽게 사용할 수 있는 Wallet SDK 개발</li>
                         </ul>
                     </div>
                     
