@@ -184,6 +184,12 @@
             width: 100%;
         }
         
+        .skill-item strong {
+            word-wrap: break-word;
+            word-break: normal;
+            hyphens: auto;
+        }
+        
         .skill-item:before {
             content: "•";
             color: var(--accent);
@@ -543,6 +549,11 @@
                 font-size: 1.1rem;
             }
             
+            h4 {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
             .profile-picture {
                 width: 150px;
                 height: 150px;
@@ -560,6 +571,19 @@
             
             .experience-header, .experience-content {
                 padding: 15px;
+            }
+            
+            .experience-content ul {
+                margin-left: 5px;
+            }
+            
+            .skill-item {
+                margin-bottom: 15px;
+                padding-right: 5px;
+            }
+            
+            .skill-item:before {
+                margin-right: 8px;
             }
             
             .project {
@@ -596,6 +620,15 @@
             div[style*="display: grid; grid-template-columns: repeat(auto-fill"] {
                 display: grid;
                 grid-template-columns: 1fr !important;
+            }
+            
+            /* 경험 상세 내용 모바일 최적화 */
+            .experience-content ul {
+                padding-left: 0;
+            }
+            
+            .experience-content .skill-item strong {
+                display: inline;
             }
         }
         
@@ -1236,10 +1269,13 @@
             <div style="margin-bottom: 30px;">
                 <h3 style="margin-bottom: 15px;">My Story</h3>
                 <p style="line-height: 1.8;">
-                    저는 어릴적부터 프로그래밍과 코딩을 통해 물리공식을 토대로 직접 게임도 만들어보고 컴퓨터의 OS에 치명적인 손상을 입혀보기도 하며 호기심을 해결하는데에 집착하곤 했습니다. 그리고 대학에서 컴퓨터공학을 공부하며 제가 가진 기질과 호기심이 전문적 기술을 통해 막대한 가치를 창출해낼 수 있음을 깨달았습니다. 그렇게 이어진 호기심의 대상과 전문성에 대한 열망은 첨단의 새로운 기술들로 이어졌고, 이것이 저를 블록체인과 인공지능이라는 두 혁신적인 분야로 이끌었습니다. 처음에는 블록체인 기술에 매료되어 NFT와 Web3 프로젝트에 참여했고, 이후 대규모 언어 모델(LLM)의 잠재력을 발견하며 자연스럽게 AI 분야로 관심을 확장했습니다.
+                    AI와 블록체인 기술의 혁신적 가능성을 실현하는 기술 전문가로, 복잡한 문제를 근본적으로 해석하고 해결책을 설계하는 분석적 접근법이 저의 핵심 역량입니다. 어릴 적부터 이어온 끊임없는 기술적 호기심과 컴퓨터공학 교육을 통해 다져진 깊은 시스템 이해력을 바탕으로, LLM과 Web3 기술의 최전선에서 실용적인 솔루션을 개발해 왔습니다. 특히 프롬프트 엔지니어링과 LLM 최적화에 있어서 제 강점은 언어 모델의 기술적 작동 원리뿐만 아니라 사용자 경험에 대한 깊은 이해에서 비롯됩니다.
                 </p>
                 <p style="line-height: 1.8; margin-top: 15px;">
-                    대기업에서의 경력보다는 빠르게 성장하고 변화하는 스타트업 환경을 선택했으며, 이는 제가 다양한 역할을 경험하고 기술적 도전을 직접 해결하는 기회가 되었습니다. 궁극적으로 AI 및 블록체인과 같은 신기술과 도메인 전문성의 융합을 통해 실용적이면서도 혁신적인 솔루션을 개발하는 것이 저의 목표입니다.
+                    기술 혁신의 속도가 빠른 AI와 블록체인 분야에서 창의적 문제 해결과 빠른 프로토타이핑 역량이 필수적이라 판단해 스타트업 환경을 선택했으며, 이를 통해 전체 제품 수명주기를 관리하고 다양한 기술적 도전을 해결하는 경험을 쌓았습니다. 시스템 아키텍처 설계부터 코드 최적화, 그리고 최종 사용자 경험까지 고려하는 통합적 시각으로 접근하여, 기술적 복잡성을 감추고 직관적인 사용자 경험을 제공하는 서비스를 구축하는 데 기여하고 있습니다.
+                </p>
+                <p style="line-height: 1.8; margin-top: 15px;">
+                    특히 LLM 운영 환경에서 중요한 기술적 도전인 정확도, 일관성, 확장성 문제를 해결하기 위해 지속적인 연구와 실험을 진행하며 최적화된 프롬프트 엔지니어링 프레임워크를 개발해왔습니다. 이러한 경험을 통해 AI 서비스의 품질을 결정짓는 핵심 요소들을 식별하고, 이를 체계적으로 개선하는 방법론을 구축할 수 있었습니다.
                 </p>
             </div>
             
