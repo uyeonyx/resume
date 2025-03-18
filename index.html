@@ -299,6 +299,116 @@
             transition: width 1.5s ease;
         }
         
+        /* Experience cards styling */
+        .experience-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-top: 5px solid var(--primary);
+            position: relative;
+        }
+        
+        .experience-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            background: linear-gradient(to right, rgba(46, 63, 110, 0.03), rgba(255, 255, 255, 0));
+        }
+        
+        .experience-company {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .experience-content {
+            padding: 25px;
+        }
+        
+        .experience-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Tech icons styling */
+        .tech-icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .tech-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 80px;
+            text-align: center;
+        }
+        
+        .tech-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .icon-image {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .icon-name {
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+        
+        /* Technology Icon Colors */
+        .typescript { background-color: #3178C6; }
+        .javascript { background-color: #F7DF1E; color: black; }
+        .python { background-color: #3776AB; }
+        .nodejs { background-color: #339933; }
+        .expressjs { background-color: #000000; }
+        .fastapi { background-color: #009688; }
+        .react { background-color: #61DAFB; color: black; }
+        
+        .kubernetes { background-color: #326CE5; }
+        .docker { background-color: #2496ED; }
+        .aws { background-color: #FF9900; }
+        .gcp { background-color: #4285F4; }
+        .prometheus { background-color: #E6522C; }
+        .grafana { background-color: #F46800; }
+        .elk { background-color: #005571; }
+        .git { background-color: #F05032; }
+        
+        .openai { background-color: #412991; }
+        .claude { background-color: #000000; }
+        .llama { background-color: #0077B5; }
+        .whisper { background-color: #9146FF; }
+        .tts { background-color: #1DB954; }
+        .vectordb { background-color: #00BCD4; }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             h1 {
@@ -324,6 +434,150 @@
             .contact-info {
                 flex-direction: column;
                 gap: 10px;
+            }
+            
+            .header-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* 인쇄 최적화를 위한 스타일 추가 */
+        @media print {
+            /* 기본 페이지 설정 */
+            @page {
+                size: A4 portrait;
+                margin: 1cm;
+            }
+            
+            /* 배경색과 그림자 인쇄 설정 */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            body {
+                background-color: white !important;
+                width: 100%;
+                font-size: 12pt;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            /* 헤더 최적화 */
+            header {
+                background: var(--primary) !important;
+                padding: 30px 20px;
+                page-break-after: avoid;
+            }
+            
+            /* 섹션 페이지 나눔 제어 */
+            .section, .profile-summary {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                background-color: white !important;
+                box-shadow: none !important;
+                border: 1px solid #eee;
+                margin: 15px 0;
+            }
+            
+            /* 섹션이 새 페이지에서 시작하도록 */
+            h2 {
+                page-break-before: auto;
+                page-break-after: avoid;
+            }
+            
+            /* 경험 카드 */
+            .experience-card {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #eee;
+            }
+            
+            /* 호버 효과 제거 */
+            .project:hover, .tech-icon:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            /* 그리드 최적화 */
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* 태그 스타일 최적화 */
+            .tag {
+                border: 1px solid var(--accent-light);
+                background-color: white !important;
+                color: var(--accent) !important;
+            }
+            
+            /* 애니메이션 제거 */
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            
+            /* 아이콘 그리드 최적화 */
+            .tech-icon-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .tech-icon {
+                box-shadow: none;
+                border: 1px solid #eee;
+                width: 70px;
+            }
+            
+            /* 푸터 */
+            .footer {
+                margin-top: 20px;
+                border-top: 1px solid #eee;
+            }
+            
+            /* 스크립트 숨기기 */
+            script {
+                display: none !important;
+            }
+            
+            /* 아이콘 색상 강제 적용 */
+            .icon-image {
+                border: 1px solid #ddd;
+            }
+            
+            /* 직무 타이틀 색상 보정 */
+            .job-title {
+                border: 1px solid var(--primary);
+                background-color: white !important;
+                color: var(--primary) !important;
+            }
+            
+            /* 프로젝트 배경색 */
+            .project {
+                background-color: white !important;
+                border: 1px solid #eee;
+            }
+            
+            /* 실적 강조 블록 */
+            .achievement {
+                background-color: white !important;
+                border: 1px solid #eee;
+                border-left: 3px solid var(--highlight);
+            }
+            
+            /* 프로필 이미지 최적화 */
+            .profile-picture {
+                border: 3px solid white;
             }
         }
     </style>
@@ -395,48 +649,6 @@
         
         <div class="section fade-in">
             <h2>💼 Professional Experience</h2>
-            
-            <style>
-                .experience-card {
-                    background-color: white;
-                    border-radius: 10px;
-                    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-                    margin-bottom: 30px;
-                    overflow: hidden;
-                    border-top: 5px solid var(--primary);
-                    position: relative;
-                }
-                
-                .experience-header {
-                    padding: 25px 25px 15px;
-                    border-bottom: 1px solid #eee;
-                    position: relative;
-                    background: linear-gradient(to right, rgba(46, 63, 110, 0.03), rgba(255, 255, 255, 0));
-                }
-                
-                .experience-company {
-                    font-size: 1.5rem;
-                    font-weight: 700;
-                    color: var(--primary);
-                    margin-bottom: 10px;
-                }
-                
-                .experience-content {
-                    padding: 25px;
-                }
-                
-                .experience-badge {
-                    position: absolute;
-                    top: 25px;
-                    right: 25px;
-                    background-color: var(--primary);
-                    color: white;
-                    padding: 5px 12px;
-                    border-radius: 20px;
-                    font-size: 0.8rem;
-                    font-weight: 600;
-                }
-            </style>
             
             <!-- EnglishAI Inc. -->
             <div class="experience-card">
@@ -698,76 +910,6 @@
                 </div>
             </div>
             
-            <style>
-                .tech-icon-grid {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 12px;
-                    margin-top: 15px;
-                }
-                
-                .tech-icon {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding: 12px;
-                    border-radius: 8px;
-                    background-color: white;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                    transition: transform 0.2s, box-shadow 0.2s;
-                    width: 80px;
-                    text-align: center;
-                }
-                
-                .tech-icon:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                }
-                
-                .icon-image {
-                    width: 40px;
-                    height: 40px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 8px;
-                    margin-bottom: 8px;
-                    font-weight: bold;
-                    color: white;
-                    font-size: 18px;
-                }
-                
-                .icon-name {
-                    font-size: 0.8rem;
-                    color: var(--dark);
-                }
-                
-                /* Technology Icon Colors - based on simpleicons.org colors */
-                .typescript { background-color: #3178C6; }
-                .javascript { background-color: #F7DF1E; color: black; }
-                .python { background-color: #3776AB; }
-                .nodejs { background-color: #339933; }
-                .expressjs { background-color: #000000; }
-                .fastapi { background-color: #009688; }
-                .react { background-color: #61DAFB; color: black; }
-                
-                .kubernetes { background-color: #326CE5; }
-                .docker { background-color: #2496ED; }
-                .aws { background-color: #FF9900; }
-                .gcp { background-color: #4285F4; }
-                .prometheus { background-color: #E6522C; }
-                .grafana { background-color: #F46800; }
-                .elk { background-color: #005571; }
-                .git { background-color: #F05032; }
-                
-                .openai { background-color: #412991; }
-                .claude { background-color: #000000; }
-                .llama { background-color: #0077B5; }
-                .whisper { background-color: #9146FF; }
-                .tts { background-color: #1DB954; }
-                .vectordb { background-color: #00BCD4; }
-            </style>
-            
             <div style="margin-top: 30px;">
                 <h3>🔹 Languages & Frameworks</h3>
                 <div class="tech-icon-grid">
@@ -977,31 +1119,42 @@
     </div>
     
     <script>
-        // Intersection Observer to handle fade-in animations
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        // Fade-in 애니메이션을 인쇄 환경에서도 작동하도록 수정
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            // 모든 fade-in 요소를 즉시 visible로 만들기
+            fadeElements.forEach(element => {
+                element.classList.add('visible');
             });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(element => {
-            observer.observe(element);
+            
+            // 인쇄 환경에서는 Intersection Observer가 필요 없음
+            if (!window.matchMedia('print').matches) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            }
         });
         
-        // Progress bar animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const progressBars = document.querySelectorAll('.progress-bar');
+        // 인쇄 전 모든 애니메이션 요소를 표시하기 위한 이벤트 리스너
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('.fade-in').forEach(element => {
+                element.classList.add('visible');
+            });
             
-            setTimeout(() => {
-                progressBars.forEach(bar => {
-                    const targetWidth = bar.getAttribute('data-width') + '%';
-                    bar.style.width = targetWidth;
-                });
-            }, 500);
+            // 그리드 레이아웃 최적화
+            document.querySelectorAll('.skills-grid').forEach(grid => {
+                grid.style.display = 'grid';
+                grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            });
         });
     </script>
 </body>
